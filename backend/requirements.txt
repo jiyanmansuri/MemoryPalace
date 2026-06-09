@@ -1,0 +1,10 @@
+fastapi
+uvicorn
+sqlmodel
+pydantic
+pydantic-settings
+python-multipart
+httpx
+psycopg2-binary
+google-generativeai
+python-dotenv
