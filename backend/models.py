@@ -32,6 +32,7 @@ class Medicine(SQLModel, table=True):
     dose: str
     schedule: str  # Comma-separated times (HH:MM)
     color_hex: str
+    photo_path: Optional[str] = None
     active: bool = True
     created_at: datetime = Field(default_factory=datetime.utcnow)
 
@@ -50,4 +51,21 @@ class Memory(SQLModel, table=True):
     embedding_id: Optional[str] = None
     duration_secs: Optional[int] = None
     tags: Optional[str] = None
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+
+class Photo(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    user_id: int
+    file_path: str
+    event_tag: Optional[str] = None
+    caption_audio_path: Optional[str] = None
+    transcript: Optional[str] = None
+    created_at: datetime = Field(default_factory=datetime.utcnow)
+
+class CirclePost(SQLModel, table=True):
+    id: Optional[int] = Field(default=None, primary_key=True)
+    user_id: int
+    category: str
+    content_text: str
+    media_path: Optional[str] = None
     created_at: datetime = Field(default_factory=datetime.utcnow)
